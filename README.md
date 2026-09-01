@@ -21,3 +21,6 @@ python .\tools\build_ebook.py
 ```
 
 出现次数以正文中人物姓名、地点名称、正式官职及其明确别称的实际出现为准；官职统计排除爵位、亲属身份和一般尊称，事件文本和位置全部取自 `src/` 下的本书正文。
+
+## github.io地址
+https://zhenhuachu.github.io/SanguoMarks/
