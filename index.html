@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="《三国演义》一百二十回标注版电子书，以及人物、地点和官职可视化。">
+  <title>三国演义 · 数字典藏</title>
+  <style>
+    :root {
+      --paper: #f3ead8;
+      --panel: #fffaf0;
+      --ink: #211b16;
+      --muted: #786b5c;
+      --red: #9e2f24;
+      --gold: #bd8b3d;
+      --line: #d8c9ac;
+      --dark: #18211d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Microsoft YaHei", "Noto Serif SC", serif;
+    }
+
+    body::before {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      opacity: .3;
+      background-image: radial-gradient(#7d6340 0.55px, transparent .7px);
+      background-size: 6px 6px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 72px clamp(22px, 7vw, 100px) 62px;
+      color: #f7ecd8;
+      background: linear-gradient(120deg, #17211d, #293228 58%, #55261f);
+    }
+
+    .hero::after {
+      position: absolute;
+      top: -60px;
+      right: 5vw;
+      content: "三國";
+      color: #fff;
+      font: 900 min(28vw, 320px)/1 serif;
+      opacity: .035;
+    }
+
+    .kicker {
+      color: #d8b879;
+      font-size: 13px;
+      letter-spacing: .35em;
+    }
+
+    h1 {
+      margin: 12px 0 10px;
+      font: 700 clamp(46px, 8vw, 88px)/1.15 STKaiti, KaiTi, serif;
+      letter-spacing: .1em;
+    }
+
+    .intro {
+      max-width: 720px;
+      margin: 0;
+      color: #d8d0c3;
+      line-height: 1.9;
+    }
+
+    main {
+      position: relative;
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 52px 0 64px;
+    }
+
+    .section-title {
+      margin: 0 0 22px;
+      color: var(--red);
+      font-size: 14px;
+      letter-spacing: .22em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      position: relative;
+      display: flex;
+      min-height: 220px;
+      flex-direction: column;
+      padding: 28px;
+      overflow: hidden;
+      color: inherit;
+      text-decoration: none;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px #593f1d0c;
+      transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      border-color: var(--gold);
+      box-shadow: 0 16px 38px #593f1d1c;
+      outline: none;
+      transform: translateY(-3px);
+    }
+
+    .card::after {
+      position: absolute;
+      right: -8px;
+      bottom: -30px;
+      color: var(--red);
+      font: 700 110px/1 STKaiti, KaiTi, serif;
+      content: attr(data-mark);
+      opacity: .045;
+    }
+
+    .number {
+      color: var(--gold);
+      font: 16px Georgia, serif;
+      letter-spacing: .12em;
+    }
+
+    .card h2 {
+      margin: 14px 0 10px;
+      font: 700 clamp(27px, 4vw, 38px)/1.25 STKaiti, KaiTi, serif;
+    }
+
+    .card p {
+      max-width: 580px;
+      margin: 0 0 24px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .enter {
+      margin-top: auto;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    footer {
+      position: relative;
+      padding: 24px 18px;
+      color: #c9c1b4;
+      text-align: center;
+      background: var(--dark);
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding-top: 50px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: 200px;
+        padding: 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="kicker">一百二十回 · 数字典藏</div>
+    <h1>三国演义</h1>
+    <p class="intro">阅读人物、地点与官职完整标注的原著，或进入专题可视化，按回目检索人物生平、山河轨迹与职官事件。</p>
+  </header>
+
+  <main>
+    <h2 class="section-title">选择典藏内容</h2>
+    <div class="grid">
+      <a class="card" data-mark="阅" href="./三国演义标注版电子书.html">
+        <span class="number">01</span>
+        <h2>标注版电子书</h2>
+        <p>通读一百二十回原著正文，查看人物、地点和官职标注，点击名称即可打开相关档案。</p>
+        <span class="enter">开始阅读 →</span>
+      </a>
+
+      <a class="card" data-mark="人" href="./三国演义人物可视化.html">
+        <span class="number">02</span>
+        <h2>人物志</h2>
+        <p>浏览人物档案、别名、出场次数、逐回轨迹，以及按原著位置排列的全部人物事件。</p>
+        <span class="enter">查看人物 →</span>
+      </a>
+
+      <a class="card" data-mark="地" href="./三国演义地点可视化.html">
+        <span class="number">03</span>
+        <h2>地理志</h2>
+        <p>检索州郡、城池、关隘、山川与建筑地点，沿一百二十回正文追踪山河变迁。</p>
+        <span class="enter">纵览山河 →</span>
+      </a>
+
+      <a class="card" data-mark="职" href="./三国演义官职可视化.html">
+        <span class="number">04</span>
+        <h2>官职志</h2>
+        <p>浏览中枢、文官、地方与军事职任，查看官职提及、逐回轨迹和相关原文事件。</p>
+        <span class="enter">查阅职官 →</span>
+      </a>
+    </div>
+  </main>
+
+  <footer>《三国演义》数字典藏 · 人物、地点与官职可视化</footer>
+</body>
+</html>
